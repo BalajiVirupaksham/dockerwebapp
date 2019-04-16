@@ -1,9 +1,9 @@
 node {
     checkout scm
 
-    docker.withRegistry('https://registry.hub.docker.com', 'mydockerhub') {
+    docker.withRegistry('https://hub.docker.com', 'mydockerhub') {
 
-        def customImage = docker.build("balajivirup-image:${env.BUILD_ID}")
+        def customImage = docker.build("balajivirup-image/dockerwebapp")
 
         /* Push the container to the custom Registry */
         customImage.push()
